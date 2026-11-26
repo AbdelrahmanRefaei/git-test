@@ -1,0 +1,22 @@
+name: generate ascii artwork
+
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install cowsay package
+              run: sudo apt-get install cowsay -y
+
+            - name: Excution
+              run: cowsay -f dragon "run for cover, iam a dragon.... RAWR" > dragon.txt
+
+            - name: Test file exist
+              run: grep -i "dragon" dragon.txt
+
+            - name: Read File
+              run: cat dragon.txt 
+
+            - name: List files
+              run: ls -l
